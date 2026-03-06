@@ -1,0 +1,24 @@
+.dashboard{
+
+margin-top:40px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+padding:20px;
+
+}
+
+.box{
+
+background:#0f172a;
+border:1px solid #22c55e;
+padding:20px;
+border-radius:10px;
+
+}
+
+h3{
+
+color:#22c55e;
+
+}
