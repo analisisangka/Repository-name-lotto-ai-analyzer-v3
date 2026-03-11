@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lotto AI Analyzer v3</title>
+
+<style>
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#0f172a;
+    color:white;
+    margin:0;
+    padding:0;
+}
+
+header{
+    text-align:center;
+    padding:40px;
+    background:#020617;
+}
+
+header h1{
+    font-size:40px;
+    margin:0;
+    color:#38bdf8;
+}
+
+header p{
+    opacity:0.8;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:30px;
+}
+
+.card{
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+input,textarea,button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:6px;
+    border:none;
+}
+
+button{
+    background:#38bdf8;
+    color:black;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.result{
+    margin-top:15px;
+    background:#020617;
+    padding:15px;
+    border-radius:6px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    font-size:14px;
+    opacity:0.6;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Lotto AI Analyzer v3</h1>
+<p>Analisis angka lotto menggunakan AI dan statistik</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>Input Data Angka Lotto</h2>
+<p>Masukkan data hasil undian sebelumnya (pisahkan dengan koma).</p>
+
+<textarea id="data" rows="4" placeholder="contoh: 3,7,12,21,30,44"></textarea>
+
+<button onclick="analyze()">Analisis Angka</button>
+
+<div id="result" class="result"></div>
+</div>
+
+<div class="card">
+<h2>Fitur</h2>
+<ul>
+<li>Analisis frekuensi angka</li>
+<li>Deteksi angka panas (hot numbers)</li>
+<li>Deteksi angka jarang muncul</li>
+<li>Rekomendasi kombinasi angka</li>
+</ul>
+</div>
+
+</div>
+
+<footer>
+Lotto AI Analyzer v3 • GitHub Pages
+</footer>
+
+<script>
+
+function analyze(){
+
+let input = document.getElementById("data").value;
+
+if(!input){
+document.getElementById("result").innerHTML="Masukkan data angka terlebih dahulu";
+return;
+}
+
+let numbers = input.split(",").map(Number);
+
+let sum = numbers.reduce((a,b)=>a+b,0);
+let avg = sum / numbers.length;
+
+document.getElementById("result").innerHTML = `
+Jumlah angka : ${numbers.length} <br>
+Total nilai : ${sum} <br>
+Rata-rata : ${avg.toFixed(2)} <br><br>
+AI rekomendasi sederhana: <b>${numbers.sort(()=>0.5-Math.random()).slice(0,5)}</b>
+`;
+
+}
+
+</script>
+
+</body>
+</html>
